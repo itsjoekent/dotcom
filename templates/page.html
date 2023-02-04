@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="{{title}}" />
+    <meta name="description" content="{{metaDescription}}" />
+    <meta property="og:url" content="https://joekent.com{{path}}" />
+    <meta property="og:image" content="{{metaImage}}" />
+    <meta name="twitter:title" content="{{title}}" />
+    <meta name="twitter:description" content="{{metaDescription}}" />
+    <meta name="twitter:image" content="{{metaImage}}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/public/{{pageCss}}" />
+    <link rel="stylesheet" href="/public/{{templateCss}}" />
+  </head>
+  <body>
+    <nav>
+      <!-- ... -->
+    </nav>
+    {{templateHtml}}
+    <footer>
+      <!-- ... -->
+    </footer>
+    <script src="/public/{{pageJs}}"></script>
+    <script src="/public/{{templateJs}}"></script>
+  </body>
+</html>
