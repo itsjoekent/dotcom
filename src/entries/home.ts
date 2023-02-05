@@ -1,3 +1,1 @@
-console.log('home!');
-
-export {};
+import '../css/home.css';

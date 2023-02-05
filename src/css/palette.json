@@ -1,0 +1,66 @@
+[
+  "Edit on: https://palettte.app/",
+  {
+    "paletteName": "Black",
+    "swatches": [
+      {
+        "name": "500",
+        "color": "171717"
+      },
+      {
+        "name": "400",
+        "color": "1B1A1A"
+      },
+      {
+        "name": "300",
+        "color": "272525"
+      },
+      {
+        "name": "200",
+        "color": "333131"
+      },
+      {
+        "name": "100",
+        "color": "413D3D"
+      }
+    ]
+  },
+  {
+    "paletteName": "White",
+    "swatches": [
+      {
+        "name": "500",
+        "color": "D3D3D3"
+      },
+      {
+        "name": "400",
+        "color": "E2E2E2"
+      },
+      {
+        "name": "300",
+        "color": "EEEEEE"
+      },
+      {
+        "name": "200",
+        "color": "F7F7F7"
+      },
+      {
+        "name": "100",
+        "color": "FFFFFF"
+      }
+    ]
+  },
+  {
+    "paletteName": "Accent Colors",
+    "swatches": [
+      {
+        "name": "Pink",
+        "color": "EE0979"
+      },
+      {
+        "name": "Orange",
+        "color": "FF6A00"
+      }
+    ]
+  }
+]
