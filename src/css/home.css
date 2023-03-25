@@ -5,8 +5,10 @@
   gap: 16px;
   width: 100%;
   height: 100vh;
-  background-color: var(--token-background-color);
+  /* background-color: var(--token-background-color); */
   padding: 16px;
+  z-index: var(--token-above-canvas-index);
+  position: relative;
 }
 
 .home-content {
@@ -46,6 +48,10 @@
   line-height: 2.2rem;
 }
 
+.home p > b {
+  font-weight: var(--font-print-semi-bold-weight);
+}
+
 @media (min-width: 768px) {
   .home {
     gap: 24px;
@@ -65,4 +71,11 @@
     font-size: 3.2rem;
     line-height: 4rem;
   }
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--token-canvas-index);
 }

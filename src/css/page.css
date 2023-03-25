@@ -29,6 +29,9 @@
   --token-text-color: var(--color-black-500);
 
   --token-max-content-width: 860px;
+
+  --token-canvas-index: 1;
+  --token-above-canvas-index: 2;
 }
 
 [data-theme='dark'] {
