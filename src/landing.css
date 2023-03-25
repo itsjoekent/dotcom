@@ -1,0 +1,109 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 100vh;
+  /* background-color: var(--token-background-color); */
+  padding: 16px;
+  z-index: var(--token-above-canvas-index);
+  position: relative;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 100%;
+  max-width: var(--token-max-content-width);
+}
+
+.home h1,
+.home p {
+  color: var(--token-text-color);
+  text-align: center;
+}
+
+.home h1 {
+  font-family: var(--font-title-family);
+  font-weight: var(--font-title-bold-weight);
+  font-size: 3.6rem;
+}
+
+.home p {
+  font-family: var(--font-print-family);
+  font-weight: var(--font-print-regular-weight);
+  font-size: 1.4rem;
+  letter-spacing: 0.01rem;
+  line-height: 2.2rem;
+}
+
+.home p>b {
+  font-weight: var(--font-print-semi-bold-weight);
+}
+
+.home-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.home-links a {
+  font-family: var(--font-print-family);
+  font-weight: var(--font-print-bold-weight);
+  font-size: 1.4rem;
+  letter-spacing: 0.02rem;
+  line-height: 2.2rem;
+  color: var(--color-pink);
+}
+
+.home-links a:hover {
+  color: var(--token-text-color);
+}
+
+#canvas-controls {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: var(--token-above-canvas-index);
+
+  font-family: var(--font-title-family);
+  font-weight: var(--font-title-bold-weight);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+
+  color: var(--color-black-400);
+  background: none;
+  border: 2px solid var(--color-black-400);
+  cursor: pointer;
+}
+
+#canvas-controls:hover {
+  color: var(--color-white-100);
+  background: var(--color-black-400);
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--token-canvas-index);
+}
+
+@media (min-width: 768px) {
+  .home {
+    gap: 24px;
+  }
+
+  .home h1 {
+    font-size: 5.2rem;
+  }
+}
+

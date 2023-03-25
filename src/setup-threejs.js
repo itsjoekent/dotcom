@@ -1,11 +1,9 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-import { getCssVariable } from './css-tokens';
-
-// TODO: Watch for light mode change
+import { getCssVariable } from './utils';
 
 export default function setupThreeJS(canvasId = 'canvas') {
-  const canvasElement = document.getElementById(canvasId) as HTMLCanvasElement;
+  const canvasElement = document.getElementById(canvasId);
   if (!canvasElement) throw new Error('No canvas element');
 
   const scene = new THREE.Scene();
@@ -26,7 +24,7 @@ export default function setupThreeJS(canvasId = 'canvas') {
   renderer.outputEncoding = THREE.sRGBEncoding;
 
   let onAnimate = () => {};
-  const registerOnAnimate = (callback: () => void) => onAnimate = callback;
+  const registerOnAnimate = (callback) => onAnimate = callback;
 
   function animate() {
     requestAnimationFrame(animate);

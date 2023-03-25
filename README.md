@@ -1,2 +1,0 @@
-# dotcom
-New personal website
