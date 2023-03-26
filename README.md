@@ -3,7 +3,7 @@
 just a silly landing page.
 
 ```sh
-$ nvm use 18
+$ nvm use
 $ npm ci
 $ npm run dev
 ```
