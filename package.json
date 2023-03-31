@@ -2,14 +2,15 @@
   "name": "dotcom",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "npx @11ty/eleventy --serve --incremental",
+    "build": "npx @11ty/eleventy",
+    "clean": "rm -rf _site && rm -rf .11ty-vite"
   },
   "devDependencies": {
-    "vite": "^4.2.0"
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-vite": "^4.0.0"
   },
   "dependencies": {
     "three": "^0.150.1"

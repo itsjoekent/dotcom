@@ -1,0 +1,33 @@
+---
+# SEO Fields
+seoTitle: "Joe Kent"
+seoDescription: "I enjoy writing code, designing systems, and being a creative. I’m a leftist and New Yorker at heart."
+seoCover: "/cover.jpg"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/joe.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet">
+    <title>{{ seoTitle }}</title>
+    <meta name="title" content="{{ seoTitle }}" />
+    <meta name="description" content="{{ seoDescription }}" />
+    <meta property="og:url" content="https://joekent.com" />
+    <meta property="og:image" content="{{ seoCover }}" />
+    <meta name="twitter:title" content="{{ seoTitle }}" />
+    <meta name="twitter:description" content="{{ seoDescription }}" />
+    <meta name="twitter:image" content="{{ seoCover }}" />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    {{ content }}
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
