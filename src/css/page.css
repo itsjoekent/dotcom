@@ -1,8 +1,8 @@
-:root {
-  --font-title-family: Oswald;
+html {
+  --font-title-family: Oswald, sans-serif;
   --font-title-bold-weight: 700;
 
-  --font-print-family: Source Sans Pro;
+  --font-print-family: Source Serif Pro, serif;
   --font-print-light-weight: 300;
   --font-print-regular-weight: 400;
   --font-print-semi-bold-weight: 600;
@@ -34,9 +34,11 @@
   --token-above-canvas-index: 2;
 }
 
-[data-theme='dark'] {
-  --token-background-color: var(--color-black-500);
-  --token-text-color: var(--color-white-100);
+@media (prefers-color-scheme: dark) {
+  html {
+    --token-background-color: var(--color-black-500);
+    --token-text-color: var(--color-white-100);
+  }
 }
 
 * {

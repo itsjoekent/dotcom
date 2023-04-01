@@ -10,12 +10,14 @@ export default function setupThreeJS(canvasId = 'canvas', playPauseId = 'canvas-
   const controlButton = document.getElementById(playPauseId);
 
   const scene = new THREE.Scene();
+  const backgroundColor = new THREE.Color(getCssVariable('token-background-color'));
+  scene.background = backgroundColor;
+
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({ canvas: canvasElement, antialias: true });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
-  const backgroundColor = new THREE.Color(getCssVariable('token-background-color'));
-  renderer.setClearColor(backgroundColor, 1);
+  renderer.setClearColor(backgroundColor.getHex(), 1);
 
   const pmremGenerator = new THREE.PMREMGenerator(renderer);
   pmremGenerator.compileEquirectangularShader();

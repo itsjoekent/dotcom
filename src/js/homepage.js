@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import setupThreeJS from './setup-threejs';
-import '../css/landing.css';
 
 function linear(time, start, end, duration) {
   const to = end - start;

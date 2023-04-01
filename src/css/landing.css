@@ -1,70 +1,51 @@
-.home {
+.landing {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 16px;
   width: 100%;
   height: 100vh;
-  /* background-color: var(--token-background-color); */
   padding: 16px;
   z-index: var(--token-above-canvas-index);
   position: relative;
 }
 
-.home-content {
+.landing-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  justify-content: flex-end;
+  padding-bottom: 16vh;
   width: 100%;
   min-height: 100%;
   max-width: var(--token-max-content-width);
 }
 
-.home h1,
-.home p {
-  color: var(--token-text-color);
-  text-align: center;
-}
+.landing h1 {
+  width: fit-content;
+  background: var(--gradient-pink-to-orange);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
 
-.home h1 {
   font-family: var(--font-title-family);
   font-weight: var(--font-title-bold-weight);
   font-size: 3.6rem;
+
+  margin-bottom: 12px;
 }
 
-.home p {
+.landing p {
+  color: var(--token-text-color);
   font-family: var(--font-print-family);
-  font-weight: var(--font-print-regular-weight);
-  font-size: 1.4rem;
+  font-weight: var(--font-print-light-weight);
+  font-size: 1.6rem;
   letter-spacing: 0.01rem;
   line-height: 2.2rem;
+  margin-bottom: 4px;
 }
 
-.home p>b {
+.landing p>b {
   font-weight: var(--font-print-semi-bold-weight);
-}
-
-.home-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-.home-links a {
-  font-family: var(--font-print-family);
-  font-weight: var(--font-print-bold-weight);
-  font-size: 1.4rem;
-  letter-spacing: 0.02rem;
-  line-height: 2.2rem;
-  color: var(--color-pink);
-}
-
-.home-links a:hover {
-  color: var(--token-text-color);
 }
 
 #canvas-controls {
@@ -79,15 +60,15 @@
   text-transform: uppercase;
   letter-spacing: 0.1rem;
 
-  color: var(--color-black-400);
+  color: var(--token-text-color);
   background: none;
-  border: 2px solid var(--color-black-400);
+  border: 2px solid var(--token-text-color);
   cursor: pointer;
 }
 
 #canvas-controls:hover {
-  color: var(--color-white-100);
-  background: var(--color-black-400);
+  color: var(--token-background-color);
+  background: var(--token-text-color);
 }
 
 #canvas {
@@ -97,12 +78,18 @@
   z-index: var(--token-canvas-index);
 }
 
+@media (min-width: 620px) {
+  .landing-content {
+    padding-left: 16px;
+  }
+}
+
 @media (min-width: 768px) {
-  .home {
+  .landing {
     gap: 24px;
   }
 
-  .home h1 {
+  .landing h1 {
     font-size: 5.2rem;
   }
 }
