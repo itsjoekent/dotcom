@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-import { getCssVariable } from './utils';
+import { getCssVariableAsThreeColor } from './three-utils';
 
 export default function setupThreeJS(canvasId = 'canvas', playPauseId = 'canvas-controls') {
   const canvasElement = document.getElementById(canvasId);
@@ -10,8 +10,10 @@ export default function setupThreeJS(canvasId = 'canvas', playPauseId = 'canvas-
   const controlButton = document.getElementById(playPauseId);
 
   const scene = new THREE.Scene();
-  const backgroundColor = new THREE.Color(getCssVariable('token-background-color'));
+  const backgroundColor = getCssVariableAsThreeColor('token-background-color');
   scene.background = backgroundColor;
+
+  scene.fog = new THREE.FogExp2(0xD3D3D3, 0.0025);
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({ canvas: canvasElement, antialias: true });
@@ -24,9 +26,6 @@ export default function setupThreeJS(canvasId = 'canvas', playPauseId = 'canvas-
   const neutralEnvironment = pmremGenerator.fromScene(new RoomEnvironment()).texture;
   scene.environment = neutralEnvironment;
 
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = Math.pow(2, 0.5);
-  renderer.outputEncoding = THREE.sRGBEncoding;
 
   let onAnimate = () => {};
   const registerOnAnimate = (callback) => onAnimate = callback;

@@ -20,8 +20,10 @@ html {
   --color-white-400: #E2E2E2;
   --color-white-500: #D3D3D3;
 
-  --color-pink: #EE0979;
+  --color-blue: #0979ee;
   --color-orange: #FF6A00;
+  --color-pink: #EE0979;
+  --color-violet: #7e09ee;
 
   --gradient-pink-to-orange: linear-gradient(90deg, var(--color-pink) 70.43%, var(--color-orange) 95.43%);
 
