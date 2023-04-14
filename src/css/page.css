@@ -34,6 +34,7 @@ html {
 
   --token-canvas-index: 1;
   --token-above-canvas-index: 2;
+  --token-nav-index: 10;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,4 +56,37 @@ html {
 html,
 body {
   margin: 0;
+}
+
+nav {
+  position: absolute;
+  z-index: var(--token-nav-index);
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 12px;
+}
+
+nav a {
+  font-family: var(--font-title-family);
+  font-weight: var(--font-title-bold-weight);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-pink);
+}
+
+nav a:hover {
+  color: var(--color-orange);
+}
+
+@media (min-width: 768px) {
+  nav {
+    padding: 16px 24px;
+  }
 }

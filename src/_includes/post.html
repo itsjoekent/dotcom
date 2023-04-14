@@ -1,0 +1,20 @@
+---
+layout: base.html
+baseStyleSheets: ["post.css"]
+
+postTemplateScripts: []
+---
+
+<main class="post">
+  <section class="post-content">
+    {{ content }}
+  </section>
+  <section>
+    <h2>You’ve reached the void</h2>
+    <canvas id="canvas"></canvas>
+  </section>
+</main>
+
+{% for script in postTemplateScripts %}
+<script type="module" src="/js/{{ script }}"></script>
+{% endfor %}
