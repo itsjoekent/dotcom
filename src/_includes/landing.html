@@ -1,0 +1,19 @@
+---
+layout: base.html
+baseStyleSheets: ["landing.css"]
+
+landingTemplateScripts: []
+---
+
+<main class="landing">
+  <div class="landing-content">
+    {{ content }}
+  </div>
+</main>
+
+<canvas id="canvas"></canvas>
+<button id="canvas-controls">Pause</button>
+
+{% for script in landingTemplateScripts %}
+  <script type="module" src="/js/{{ script }}"></script>
+{% endfor %}
