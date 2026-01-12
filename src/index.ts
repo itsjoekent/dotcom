@@ -1,7 +1,11 @@
 const LETTER_STRIKE_ORIGIN = "https://letter-strike.itsjoekent.workers.dev";
 
+interface Env {
+  ASSETS: Fetcher;
+}
+
 export default {
-  async fetch(request: Request): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
     // Proxy /letter-strike requests
@@ -20,7 +24,6 @@ export default {
 
       const response = await fetch(proxyRequest);
 
-      // Return the proxied response with CORS headers if needed
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
@@ -28,8 +31,7 @@ export default {
       });
     }
 
-    // For all other requests, let the static assets handler take over
-    // This is handled automatically by Cloudflare's assets configuration
-    return new Response("Not Found", { status: 404 });
+    // Serve static assets for all other requests
+    return env.ASSETS.fetch(request);
   },
 };
