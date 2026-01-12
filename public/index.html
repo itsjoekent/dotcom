@@ -5,95 +5,170 @@
     <link rel="icon" type="image/svg+xml" href="/joe.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Hi. I’m Joe.</title>
-    <meta name="title" content="Hi. I’m Joe." />
+    <title>Hi. I'm Joe.</title>
+    <meta name="title" content="Hi. I'm Joe." />
     <meta name="description" content="On most days you can find me writing code, exercising the creative side of my brain, or wandering New York City." />
     <meta property="og:url" content="https://joekent.com" />
     <meta property="og:image" content="/cover.jpg" />
 
     <meta name="google-adsense-account" content="ca-pub-6782856844662332" />
 
-    <link rel="stylesheet" href="https://use.typekit.net/ktq2zlg.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
+      :root {
+        --bg: #E0DEDD;
+        --text: #1A1A1A;
+        --text-muted: #4A4A4A;
+        --link: #1A1A1A;
+        --link-hover: #666666;
+        --card-bg: #D4D2D1;
+        --card-dark: #3D3B3C;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       html, body {
         margin: 0;
         padding: 0;
-        font-family: "mendl-sans-dusk", sans-serif;
+        font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 400;
-        font-style: normal;
-        font-size: 18px;
-        color: #FFFFFF;
-        background-color: #2A272C;
-        box-sizing: border-box;
+        font-size: 16px;
+        color: var(--text);
+        background-color: var(--bg);
+        line-height: 1.5;
       }
 
       .content {
         display: flex;
         flex-direction: column;
-        gap: 76px;
+        gap: 32px;
         width: 100%;
-        max-width: 500px;
-        padding: 24px;
-        padding-bottom: 72px;
-        margin-top: 30vh;
-        box-sizing: border-box;
-      }
-
-      .content > div {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
+        max-width: 420px;
+        padding: 48px 24px 72px;
       }
 
       @media screen and (min-width: 600px) {
         .content {
-          margin-left: 16vw;
-        }
-
-        .content > div {
-          gap: 24px;
+          padding: 80px 24px 120px;
         }
       }
 
-      h1, h2, p, ul {
-        margin: 0;
-      }
-
-      h1, h2 {
-        font-family: "mendl-sans-dusk", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-
-        color: #FFFFFF;
-        font-size: 1.2rem;
+      h1 {
+        margin: 0 0 24px 0;
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
       }
 
       p {
-        font-size: 1rem;
-        letter-spacing: 0.4px;
-        line-height: 1.15rem;
+        margin: 0 0 16px 0;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: var(--text-muted);
+      }
+
+      p:last-of-type {
+        margin-bottom: 0;
       }
 
       a {
-        color: #BBBBBB;
+        color: var(--link);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.15s ease;
       }
 
       a:hover {
-        color: #878585;
+        color: var(--link-hover);
       }
 
-      ul > li {
-        margin-bottom: 0.75rem;
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+        margin-top: 16px;
+      }
+
+      .links a {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .links a::before {
+        content: "[";
+      }
+
+      .links a::after {
+        content: "]";
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+
+      .projects {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .project-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 16 / 9;
+        background-color: var(--card-bg);
+        border-radius: 4px;
+        overflow: hidden;
+        text-decoration: none;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card.dark {
+        background-color: var(--card-dark);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     </style>
   </head>
   <body>
     <div class="content">
       <div>
-        <h1>Hi. I’m Joe.</h1>
-        <p>Self-taught software engineer living in NYC. Making stuff on the internet for fun. I hate billionaires. You can find me on <a href="https://bsky.app/profile/itsjoekent.bsky.social">Bluesky</a>, <a href="https://www.instagram.com/itsjoekent">Instagram</a>, <a href="https://www.tiktok.com/@itsjoekent">TikTok</a>, and <a href="https://x.com/itsjoekent">Twitter</a>.</p>
-        <p>If you would like to discuss starting a religious cult or other forms of fraudulent schemes with me, please contact me directly, <a href="mailto:hello@joekent.com">hello@joekent.com</a></p>
+        <h1>oh hey.</h1>
+        <p>if you would like to discuss starting a religious cult, buying the yankees, or other forms of fraudulent schemes with me, please contact me directly, <a href="mailto:hello@joekent.com">hello@joekent.com</a></p>
+        
+        <nav class="links">
+          <a href="https://www.instagram.com/itsjoekent">instagram</a>
+          <a href="https://www.tiktok.com/@itsjoekent">tiktok</a>
+          <a href="https://photography.joekent.com">photography</a>
+          <a href="https://www.linkedin.com/in/joe-kent-63170077/">capitalist hell</a>
+        </nav>
+      </div>
+
+      <div class="projects">
+        <a href="/letter-strike" class="project-card dark" target="_blank" rel="noopener">
+          <img src="https://letter-strike.itsjoekent.workers.dev/og-image.png" alt="Letter Strike" />
+        </a>
+        <div class="project-card"></div>
+        <div class="project-card"></div>
       </div>
     </div>
   </body>
