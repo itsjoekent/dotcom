@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "dev": "wrangler pages dev ./public",
+    "deploy": "wrangler pages deploy ./public",
     "cf-typegen": "wrangler types"
   },
   "devDependencies": {
