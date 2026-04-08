@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "concurrently -n vite,cf \"vite build --watch\" \"wait-on public/build/index.html && wrangler pages dev ./public/build\"",
     "deploy": "vite build && wrangler pages deploy ./public/build",
