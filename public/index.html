@@ -15,160 +15,71 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
-    
-    <style>
-      :root {
-        --bg: #E0DEDD;
-        --text: #1A1A1A;
-        --text-muted: #4A4A4A;
-        --link: #1A1A1A;
-        --link-hover: #666666;
-        --card-bg: #D4D2D1;
-        --card-dark: #3D3B3C;
-      }
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html, body {
-        margin: 0;
-        padding: 0;
-        font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        color: var(--text);
-        background-color: var(--bg);
-        line-height: 1.5;
-      }
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        width: 100%;
-        max-width: 420px;
-        padding: 48px 24px 72px;
-      }
-
-      @media screen and (min-width: 600px) {
-        .content {
-          padding: 80px 24px 120px;
-        }
-      }
-
-      h1 {
-        margin: 0 0 24px 0;
-        font-family: "Archivo Black", sans-serif;
-        font-weight: 900;
-        font-size: 2rem;
-        letter-spacing: -0.02em;
-        color: var(--text);
-      }
-
-      p {
-        margin: 0 0 16px 0;
-        font-size: 0.95rem;
-        line-height: 1.55;
-        color: var(--text-muted);
-      }
-
-      p:last-of-type {
-        margin-bottom: 0;
-      }
-
-      a {
-        color: var(--link);
-        text-decoration: underline;
-        text-underline-offset: 2px;
-        transition: color 0.15s ease;
-      }
-
-      a:hover {
-        color: var(--link-hover);
-      }
-
-      .links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px 8px;
-        margin-top: 16px;
-      }
-
-      .links a {
-        color: var(--text);
-        text-decoration: none;
-        font-size: 0.9rem;
-      }
-
-      .links a::before {
-        content: "[";
-      }
-
-      .links a::after {
-        content: "]";
-      }
-
-      .links a:hover {
-        text-decoration: underline;
-      }
-
-      .projects {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 16px;
-      }
-
-      .project-card {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        aspect-ratio: 16 / 9;
-        background-color: var(--card-bg);
-        border-radius: 4px;
-        overflow: hidden;
-        text-decoration: none;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-
-      .project-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .project-card.dark {
-        background-color: var(--card-dark);
-      }
-
-      .project-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
+    <script type="module" src="../src/main.ts"></script>
   </head>
   <body>
-    <div class="content">
-      <div>
-        <h1>oh hey.</h1>
-        <p>if you would like to discuss starting a religious cult, buying the yankees, or other forms of fraudulent schemes with me, please contact me directly, <a href="mailto:hello@joekent.com">hello@joekent.com</a></p>
-        
-        <nav class="links">
-          <a href="https://www.instagram.com/itsjoekent">life</a>
-          <a href="https://www.tiktok.com/@itsjoekent">videos</a>
-          <a href="https://www.instagram.com/framed.by.joe">photos</a>
-          <a href="https://www.linkedin.com/in/joe-kent-63170077">shareholder value</a>
-        </nav>
+    <div id="starfield" class="starfield"></div>
+    <div id="cursor-cube" class="cursor-cube cursor-cube--default" aria-hidden="true">
+      <div class="cursor-cube__wrapper">
+        <div class="cursor-cube__cube">
+          <div class="cursor-cube__face"></div>
+          <div class="cursor-cube__face"></div>
+          <div class="cursor-cube__face"></div>
+          <div class="cursor-cube__face"></div>
+          <div class="cursor-cube__face"></div>
+          <div class="cursor-cube__face"></div>
+        </div>
       </div>
+    </div>
+    <div class="page">
+      <div class="content">
+        <header class="profile-header">
+          <img
+            class="profile-avatar"
+            src="./joe-2.jpg"
+            alt=""
+            width="48"
+            height="48"
+            decoding="async"
+          />
+          <div class="profile-meta">
+            <p class="handle">@itsjoekent</p>
+            <nav class="social-links" aria-label="Social links">
+              <a href="https://www.instagram.com/itsjoekent" class="social-link" aria-label="Instagram">
+                <img src="./instagram.svg" alt="" width="16" height="16" />
+              </a>
+              <a href="https://x.com/itsjoekent" class="social-link" aria-label="X">
+                <img src="./twitter.svg" alt="" width="16" height="16" />
+              </a>
+              <a href="https://www.linkedin.com/in/joe-kent-63170077" class="social-link" aria-label="LinkedIn">
+                <img src="./linkedin.svg" alt="" width="16" height="16" />
+              </a>
+              <a href="https://www.tiktok.com/@itsjoekent" class="social-link" aria-label="TikTok">
+                <img src="./tiktok.svg" alt="" width="16" height="16" />
+              </a>
+              <a href="https://www.youtube.com/@itsjoekent" class="social-link" aria-label="YouTube">
+                <img src="./youtube.svg" alt="" width="16" height="16" />
+              </a>
+            </nav>
+          </div>
+        </header>
 
-      <div class="projects">
-        <a href="/letter-strike" class="project-card dark">
-          <img src="https://letter-strike.itsjoekent.workers.dev/og-image.png" alt="Letter Strike" />
-        </a>
-        <div class="project-card"></div>
-        <div class="project-card"></div>
+        <p class="bio">
+          if you would like to discuss starting a religious cult, buying the yankees, or other forms of fraudulent schemes with me, please contact me directly,
+          <a href="mailto:hello@joekent.com">hello@joekent.com</a>
+        </p>
+
+        <div class="projects">
+          <a href="/letter-strike" class="project-card project-card--letter-strike">
+            <img src="https://letter-strike.itsjoekent.workers.dev/og-image.png" alt="Letter Strike" />
+          </a>
+          <div class="project-card project-card--placeholder" aria-hidden="true"></div>
+          <div class="project-card project-card--placeholder" aria-hidden="true"></div>
+          <div class="project-card project-card--placeholder" aria-hidden="true"></div>
+          <div class="project-card project-card--placeholder" aria-hidden="true"></div>
+        </div>
       </div>
     </div>
   </body>
