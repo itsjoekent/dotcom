@@ -40,13 +40,37 @@ export function initCursorCube(root: HTMLElement) {
     document.documentElement.classList.toggle("use-custom-cursor", on);
   };
 
+  let lastX = 0;
+  let lastY = 0;
+  let hasMove = false;
+
   const move = (clientX: number, clientY: number) => {
     root.style.transform = `translate(${clientX}px, ${clientY}px)`;
     applyMode(root, cursorModeAt(clientX, clientY, root));
   };
 
   const onMove = (e: MouseEvent) => {
-    move(e.clientX, e.clientY);
+    hasMove = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    move(lastX, lastY);
+  };
+
+  /** OS cursor often reappears after blur; force `cursor: none` to apply again. */
+  const refreshCursorAfterReturn = () => {
+    if (!active() || !hasMove || document.visibilityState !== "visible") return;
+    setCursorClass(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (!active()) return;
+        setCursorClass(true);
+        move(lastX, lastY);
+      });
+    });
+  };
+
+  const onVisibilityChange = () => {
+    if (document.visibilityState === "visible") refreshCursorAfterReturn();
   };
 
   let listening = false;
@@ -55,6 +79,8 @@ export function initCursorCube(root: HTMLElement) {
     if (active()) {
       if (!listening) {
         window.addEventListener("mousemove", onMove, { passive: true });
+        window.addEventListener("focus", refreshCursorAfterReturn);
+        document.addEventListener("visibilitychange", onVisibilityChange);
         listening = true;
       }
       setCursorClass(true);
@@ -62,6 +88,8 @@ export function initCursorCube(root: HTMLElement) {
     } else {
       if (listening) {
         window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("focus", refreshCursorAfterReturn);
+        document.removeEventListener("visibilitychange", onVisibilityChange);
         listening = false;
       }
       setCursorClass(false);
@@ -74,7 +102,11 @@ export function initCursorCube(root: HTMLElement) {
   mqMotion.addEventListener("change", sync);
 
   return () => {
-    if (listening) window.removeEventListener("mousemove", onMove);
+    if (listening) {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("focus", refreshCursorAfterReturn);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    }
     mqFine.removeEventListener("change", sync);
     mqMotion.removeEventListener("change", sync);
     setCursorClass(false);
