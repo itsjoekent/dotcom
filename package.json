@@ -1,24 +1,15 @@
 {
   "name": "dotcom",
-  "version": "1.0.0",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": ">=20"
-  },
   "scripts": {
-    "dev": "concurrently -n vite,cf \"vite build --watch\" \"wait-on public/build/index.html && wrangler pages dev ./public/build\"",
-    "deploy": "vite build && wrangler pages deploy ./public/build",
-    "build": "vite build",
-    "cf-typegen": "wrangler types functions/worker-env.d.ts --include-runtime false"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20241205.0",
-    "@types/node": "^22.10.2",
-    "concurrently": "^9.1.2",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.3",
-    "wait-on": "^9.0.4",
-    "wrangler": "^4.81.0"
+    "typescript": "~6.0.2",
+    "vite": "^8.0.12"
   }
 }
